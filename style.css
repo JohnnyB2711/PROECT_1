@@ -71,7 +71,7 @@ input[type="text"]{
     border-bottom: 1px solid #ccc; /* Линия снизу */
     background: transparent; /* Прозрачный фон */
     font-weight:;
-	color: #dcdcdc;
+	color: red;
 	font-size: 20px;
 
 }
