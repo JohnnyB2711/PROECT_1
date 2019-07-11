@@ -1,4 +1,44 @@
 doctype html
-html (lang="ru-RU")
+html
     head
+    meta(charset = 'utf-8')
+    title Webpack app
+    script src="http://code.jquery.com/jquery-1.8.3.js"
+    script src="/script.js"
     body
+        div#osnov
+            div#left
+                img(src="./img/background.png")
+                header
+                    img(src="./img/logo.png")
+            div#right
+                div#right_content
+                    h2 Sign Up
+                    div.block_pole_registr
+                        div.pole_registr
+                            span.text Full name
+                            p
+                                input(type="text" maxlength="25" value="Name...")
+                        div.pole_registr
+                            span.text Username
+                            p
+                                input(type="text" maxlength="25" value="Username...")
+                        div.pole_registr
+                            span.text Email
+                            p
+                                input(type="text" maxlength="25" value="Email address...")
+                        div.pole_registr
+                            span.text Password
+                            p
+                                input(type="text" maxlength="25" value="Name...")
+                        div.pole_registr
+                            span.text Password Confirmation
+                            p
+                                input(type="text" maxlength="25" value="Name...")
+                        div.pole_registr
+                            span Passwords don't match
+                            img(src="./img/invalid.png")
+                    div#block_button
+                        labelinput type="checkbox" I accept span#green_text Terms amd Condition
+                        p
+                            input(type="submit" value="Sign Up")
