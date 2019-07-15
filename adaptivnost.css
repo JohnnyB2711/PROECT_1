@@ -1,11 +1,11 @@
-@media (min-width: 730px){
+@media (min-width: 980px){
     #osnov{
         height: 100%;
         width: 100%;
-        min-width: 730px;
+        min-width: 980px;
     }
     #right {
-        width: 400px;
+        width: 50%;
         position: relative;
         right: 0;
     }
@@ -13,13 +13,12 @@
         left: 0;
     }
     #left{
-        min-width: 20%;
+        min-width: 10%;
     }
 }
-@media (min-width: 320px) and (max-width: 729px)
+@media (min-width: 320px) and (max-width: 979px)
 {
     #osnov{
-        height: 700px;
         width: 100%;
     }
     #left{
@@ -39,14 +38,41 @@
     #text{
         font-size: 20px;
     }
+    #invalid_massage{
+        font-size: 20px;
+    }
     #invalid_password{
-        bottom: 25px;
+        font-size: 10px;
+        width: 220px;
+        position: absolute;
+        display: none;
+    }
+    h2{
+        margin: 20px 0;
+        font-size: 48px;
+    }
+    .block_pole_registr{
+        font-size: 20px;
+    }
+    input[type="text"]{
+        font-size: 20px;
+    }
+    label {
+        font-size:15px;
+    }
+    input[type=submit]{
+        margin-top: 30px;
+        font-size: 25px;
+        width:150px;
+    }
+    .pole_registr{
+        margin-top: 35px;
     }
 
 }
 @media (max-width: 390px){
     #osnov{
-        width: 320px;
+        width: 390px;
         padding: 0;
     }
     #left{
@@ -64,8 +90,37 @@
     }
     #text{
         font-size: 20px;
+        top:10px;
+        margin-top: 10px;
+    }
+    }
+    #invalid_massage{
+        font-size: 12px;
     }
     #invalid_password{
-        bottom: 25px;
+        font-size: 10px;
+        width: 220px;
+        position: absolute;
+        display: none;
     }
-}
+    h2{
+        margin: 20px 0;
+        font-size: 48px;
+    }
+    .block_pole_registr{
+        font-size: 20px;
+    }
+    input[type="text"]{
+        font-size: 20px;
+    }
+    label {
+        font-size:15px;
+    }
+    input[type=submit]{
+        margin-top: 30px;
+        font-size: 25px;
+        width:150px;
+    }
+    .pole_registr{
+        margin-top: 35px;
+    }

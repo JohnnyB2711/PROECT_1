@@ -6,149 +6,147 @@ $letter-spacing=1px;
   -ms-transform: $property;
   transform: $property;
 }
-
-* {
-  margin: 0;
-  padding: 0;
+<!--основа-->
+html{
+  width: 100%;
+  height: 100%;
+  body{
+    margin: 0;
+    padding: 0;
+    font-family:$font-familyfont;
+    letter-spacing:$letter-spacing;
+    height: 100%;
+    width: 100%;
+    #osnov{
+      width: 100%;
+      height: 100%;
+      display: flex;
+    }
+  }
 }
-body{
-  margin: 0;
-  padding: 0;
-  font-family: $font-family;
-  letter-spacing: $letter-spacing;
-}
-#osnov{
-  display: flex;
-  height: 700px;
-  width: 1600px;
-  margin: auto;
-}
+<!--правый блок-->
 #right{
-  width: 30%;
-  position: relative;
+  width: 35%;
   display: flex;
-
   #right_content{
     margin: 0 auto;
     width: 80%;
     text-align: left;
-  }
-  h2{
-    margin-top: 10px;
-    font-size: 48px;
-    font-weight:bold;
-    position: relative;
+    h2{
+      margin: 20px 0;
+      font-size: 48px;
+      font-weight:bold;
+    }
   }
 }
-
+<!--левый блок -->
 #left {
-  width: 70%;
-  position: relative;
+  width: 65%;
   display: flex;
-
-  #left img{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-  }
-  header img
-  {
-    width: 100%;
-    height: 90%;
-  }
+  background: url(img/background.png);
+  background-size: cover;
   header{
-    width: 400px;
+    width:100%;
     height: 200px;
-    position:absolute;
-    right: 10px;
+    display: flex;
+    justify-content: flex-end;
+    padding:5px 10px;
+    header img
+    {
+      width:500px;
+    }
   }
 }
+<!--поле регистрации -->
 .block_pole_registr{
-  top: 10%;
+  display: flex;
+  flex-direction: column;
   width: 100%;
   color: #959595;
-  font-size: 15px;
+  font-size: 20px;
   font-weight:bold;
-  position: relative;
-
   .pole_registr{
-    height: 80px;
     width: 100%;
-    position: relative;
-  }
-  #text{
-    position: absolute;
-    top:10px;
-  }
+    margin-top: 35px;
+    #text{
+      top:10px;
+      margin-top: 10px;
+    }
+    input[type="text"]{
+      width: 100%;
+      box-sizing: border-box;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      background: transparent;
+      color: #dcdcdc;
+      font-size: 28px;
+      outline:none;
+      padding-bottom:5px;
+      margin-top: 10px;
 
+    }
+  }
 }
-#invalid_password{
-  font-size: 13px;
+<!--ошибки -->
+.invalid{
   color: #c80000;
   border: 1px solid #c80000;
-  right: 0px;
-  bottom: 20px;
-  padding: 1px 5px;
-  position: absolute;
-  width: 220px;
+  padding: 3px 7px;
   text-align: center;
-  display: none;
+  font-weight:bold;
+  .invalid img{
+    height: 15px;
+  }
+  #invalid_password{
+    font-size: 18px;
+    width: 220px;
+    position: absolute;
+    display: none;
+  }
+  #invalid_massage{
+    font-size: 20px;
+  }
 }
-#invalid_password img{
-  height: 15px;
-}
-input[type="text"]{
-  width: 100%;
-  box-sizing: border-box;
-  padding-bottom: 12px ;
-  border: none;
-  border-bottom: 1px solid #ccc;
-  background: transparent;
-  color: #dcdcdc;
-  font-size: 20px;
-  outline:none;
-  margin-top: 10px;
-
-}
+<!--label и checkbox -->
 #block_button{
-  top:10%;
-  position: relative;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  label {
+    font-size:20px;
+    color: #959595;
+    font-weight:bold;
+    #green_text{
+      color:#65c29b;
+    }
+  }
+  input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    margin:0 10px 0  0;
+    vertical-align: bottom;
+  }
+  input[type=checkbox]:checked + label:before {
+    content: "\2713";
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+    color: #f3f3f3;
+    text-align: center;
+    line-height: 15px;
+  }
 }
-label {
-  display: block;
-  font-size: 13px;
-  color: #959595;
-  font-weight:bold;
-}
-input[type="checkbox"] {
-  width: 20px;
-  height: 20px;
-  position: relative;
-  margin:0 10px 0  0;
-  vertical-align: bottom;
-}
-#green_text{
-  color:#65c29b;
-}
-input[type=checkbox]:checked + label:before {
-  content: "\2713";
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
-  color: #f3f3f3;
-  text-align: center;
-  line-height: 15px;
-}
+<!--кнопка-->
 input[type=submit]{
-  margin-top: 30px;
-  font-size: 20px;
+  margin-top: 80px;
+  font-size: 30px;
   font-weight:bold;
-  width:60%;
-  background:linear-gradient(to top, black 0%, white 100%);
-  border:3px solid ;
-  border-radius:20px;
-  padding: 5px 10px;
+  width:300px;
+  background:linear-gradient(to top,#00aeef 0%, #64c29b 100%);
+  border-radius:30px;
+  padding: 5px 0;
   outline:none;
   color: white;
 }
 input[type=submit]:hover{
-  box-shadow:0 0 5px rgba(0,0,0,0.5);
+  background:linear-gradient(to top,#64c29b 0%, #00aeef 100%);
 }
