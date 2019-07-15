@@ -1,4 +1,4 @@
-@media (min-width: 730px) and (max-width: 1280px)
+@media (min-width: 730px) and (max-width: 1600px)
 {
     #osnov{
         height: 700px;
@@ -15,12 +15,6 @@
     }
     #left{
         min-width: 20%;
-    }
-    header img
-    {
-
-    }
-    header{
     }
 }
 @media (min-width: 320px) and (max-width: 729px)
