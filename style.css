@@ -1,112 +1,108 @@
-* {
-    margin: 0;
-    padding: 0;
+html{
+    width: 100%;
+    height: 100%;
 }
 body{
     margin: 0;
     padding: 0;
     font-family: Verdana, serif;
     letter-spacing:1px;
+    height: 100%;
+    width: 100%;
+    background: #c80000;
 }
 #osnov{
+    width: 100%;
     display: flex;
-    height: 700px;
-    width: 1600px;
-    margin: auto;
+    background: #959595;
 }
 #right{
-    width: 30%;
-    position: relative;
+    width: 40%;
     display: flex;
-
+    background: #00aeef;
 }
 #right_content{
     margin: 0 auto;
     width: 80%;
     text-align: left;
+    background: bisque;
 }
 #left {
-    width: 70%;
-    position: relative;
-    background: #c80000;
+    width: 60%;
     display: flex;
+    background: url(img/background.png);
+    background-size: cover;
 }
-#left img{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-}
-
 header img
 {
-    width: 100%;
-    height: 90%;
+    width:600px;
 }
 header{
-    width: 400px;
-    height: 200px;
-    position:absolute;
-    right: 10px;
+    width:100%;
+    height: 300px;
+    display: flex;
+    justify-content: flex-end;
+    padding:5px 10px;
 }
 h2{
     margin-top: 10px;
     font-size: 48px;
     font-weight:bold;
-    position: relative;
 }
 .pole_registr{
-    height: 80px;
     width: 100%;
-    position: relative;
+    margin-top: 25px;
 }
 #text{
-    position: absolute;
     top:10px;
+    margin-top: 10px;
 }
 .block_pole_registr{
-    top: 10%;
+    top: 30px;
+    display: flex;
+    flex-direction: column;
     width: 100%;
     color: #959595;
-    font-size: 15px;
+    font-size: 20px;
     font-weight:bold;
-    position: relative;
-
+}
+#invalid_massage{
+    font-size: 20px;
 }
 #invalid_password{
-    font-size: 13px;
+    font-size: 18px;
+    width: 220px;
+}
+.invalid{
     color: #c80000;
     border: 1px solid #c80000;
-    right: 0px;
-    bottom: 20px;
-    padding: 1px 5px;
-    position: absolute;
-    width: 220px;
+    padding: 3px 7px;
     text-align: center;
-    display: none;
+    font-weight:bold;
 }
-#invalid_password img{
+.invalid img{
     height: 15px;
 }
+
 input[type="text"]{
-    width: 100%; /* Ширина поля */
-    box-sizing: border-box; /* Ширина не учитывает padding */
-    padding-bottom: 12px ; /* Поля вокруг текста */
-    border: none; /* Убираем рамку */
-    border-bottom: 1px solid #ccc; /* Линия снизу */
-    background: transparent; /* Прозрачный фон */
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background: transparent;
     color: #dcdcdc;
-    font-size: 20px;
+    font-size: 28px;
     outline:none;
+    padding-bottom:5px;
     margin-top: 10px;
 
 }
 #block_button{
-    top:10%;
-    position: relative;
+    margin-top: 40px;
 }
 label {
     display: block;
-    font-size: 13px;
+    font-size:20px;
     color: #959595;
     font-weight:bold;
 }
@@ -128,17 +124,16 @@ input[type=checkbox]:checked + label:before {
     line-height: 15px;
 }
 input[type=submit]{
-    margin-top: 30px;
-    font-size: 20px;
+    margin-top: 50px;
+    font-size: 30px;
     font-weight:bold;
     width:60%;
-    background:linear-gradient(to top, black 0%, white 100%);
-    border:3px solid ;
+    background:linear-gradient(to top,#00aeef 0%, #64c29b 100%);
     border-radius:20px;
     padding: 5px 10px;
     outline:none;
     color: white;
 }
 input[type=submit]:hover{
-    box-shadow:0 0 5px rgba(0,0,0,0.5);
+    background:linear-gradient(to top,#64c29b 0%, #00aeef 100%);
 }

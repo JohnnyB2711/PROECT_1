@@ -1,58 +1,64 @@
 <!doctype html>
-<head>
-	<meta charset="utf-8">
-	<title>Smartech</title>
-	<link rel="stylesheet" type="text/css" href="style.css"><link rel="stylesheet" type="text/css" href="adaptivnost.css">
-	<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
-	<script src="/script.js"></script>
-	
-
-</head>
-<body>
-    <div id="osnov">
-        <div id="left">
-            <img src="img/background.png">
-            <header> <img src="img/logo.png"></header>
-        </div>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Smartech</title>
+        <link rel="stylesheet" type="text/css" href="style.css"><link rel="stylesheet" type="text/css" href="gadaptivnost.css">
+        <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+        <script src="/script.js"></script>
 
 
+    </head>
+    <body>
+        <div id="osnov">
+            <div id="left">
+                <header> <img src="img/logo.png"></header>
+            </div>
 
-        <div id="right">
-            <div id="right_content">
-                <h2>Sign Up</h2>
-                <div class="block_pole_registr">
-                    <div class="pole_registr">
-                        <span class="text">Full name</span>
-                        <p><input type="text" maxlength="25" value="Name..."></p>
+
+
+            <div id="right">
+                <div id="right_content">
+                    <h2>Sign Up</h2>
+                    <div class="invalid "id="invalid_massage">
+                        <span>Something went wrong.Please, try again.</span>
                     </div>
-                    <div class="pole_registr">
-                        <span class="text">Username</span>
-                        <p><input type="text" maxlength="25"value="Username..."></p>
-                    </div>
-                    <div class="pole_registr">
-                        <span class="text">Email</span>
-                        <p><input type="text" maxlength="25"value="Email address..."></p>
-                    </div>
-                    <div class="pole_registr">
-                        <span class="text">Password</span>
-                        <p><input type="text" maxlength="25" value="Name..."></p>
+                    <div class="block_pole_registr">
+                        <div class="pole_registr">
+                            <span class="text">Full name</span>
+                            <input type="text" maxlength="25" value="Name...">
+                        </div>
+                        <div class="pole_registr">
+                            <span class="text">Username</span>
+                            <input type="text" maxlength="25"value="Username...">
+                        </div>
+                        <div class="pole_registr">
+                            <span class="text">Email</span>
+                            <input type="text" maxlength="25"value="Email address...">
+                        </div>
+                        <div class="pole_registr">
+                            <span class="text">Password</span>
+                            <input type="text" maxlength="25" value="Name...">
+
+                        </div>
+                        <div class="pole_registr">
+                            <span class="text">Password Confirmation</span>
+                            <input type="text" maxlength="25" value="Name...">
+                            <div class="invalid "id="invalid_password">
+                                <span>Passwords don't match</span>
+                                <img src="img/invalid.png">
+                            </div>
+                        </div>
+
 
                     </div>
-                    <div class="pole_registr">
-                        <span class="text">Password Confirmation</span>
-                        <p><input type="text" maxlength="25" value="Name..."></p>
-                    </div>
-                    <div id="invalid_password">
-                        <span>Passwords don't match</span>
-                        <img src="img/invalid.png">
-                    </div>
+                    <div id="block_button">
+                        <label><input type="checkbox">I accept <span id="green_text"> Terms amd Condition</span></label>
+                        <input type="submit" value="Sign Up">
+                      </div>
+
                 </div>
-                <div id="block_button">
-                    <label><input type="checkbox">I accept <span id="green_text"> Terms amd Condition</span></label>
-                    <input type="submit" value="Sign Up">
-                  </div>
-
             </div>
         </div>
-    </div>
-</body>
+    </body>
+</html>
