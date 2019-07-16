@@ -1,10 +1,13 @@
-$font-family=Verdana, serif;
+$font-family=Verdana,serif;
 $letter-spacing=1px;
+$color=#959595;
+$color_green=#64c29b;
+$color_blue=#00aeef;
+$color_red=#c80000;
 
-@mixin transform($property) {
-  -webkit-transform: $property;
-  -ms-transform: $property;
-  transform: $property;
+@mixin transform($property1 , $property2) {
+  font-size: $property1;
+  margin: $property2;
 }
 <!--основа-->
 html{
@@ -33,8 +36,7 @@ html{
     width: 80%;
     text-align: left;
     h2{
-      margin: 20px 0;
-      font-size: 48px;
+      @include transform(48px , 20px 0);
       font-weight:bold;
     }
   }
@@ -62,7 +64,7 @@ html{
   display: flex;
   flex-direction: column;
   width: 100%;
-  color: #959595;
+  color: $color;
   font-size: 20px;
   font-weight:bold;
   .pole_registr{
@@ -89,8 +91,8 @@ html{
 }
 <!--ошибки -->
 .invalid{
-  color: #c80000;
-  border: 1px solid #c80000;
+  color: $color_red;
+  border: 1px solid $color_red;
   padding: 3px 7px;
   text-align: center;
   font-weight:bold;
@@ -114,10 +116,10 @@ html{
   flex-direction: column;
   label {
     font-size:20px;
-    color: #959595;
+    color: $color;
     font-weight:bold;
     #green_text{
-      color:#65c29b;
+      color:$color_green;
     }
   }
   input[type="checkbox"] {
@@ -141,12 +143,12 @@ input[type=submit]{
   font-size: 30px;
   font-weight:bold;
   width:300px;
-  background:linear-gradient(to top,#00aeef 0%, #64c29b 100%);
+  background:linear-gradient(to top,$color_bluef 0%, $color_green 100%);
   border-radius:30px;
   padding: 5px 0;
   outline:none;
   color: white;
 }
 input[type=submit]:hover{
-  background:linear-gradient(to top,#64c29b 0%, #00aeef 100%);
+  background:linear-gradient(to top,$color_green 0%,$color_blue 100%);
 }
