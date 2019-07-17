@@ -1,51 +1,50 @@
-$font-family=Verdana,serif;
-$letter-spacing=1px;
-$color=#959595;
-$color_green=#64c29b;
-$color_blue=#00aeef;
-$color_red=#c80000;
+$font-family:Verdana,serif;
+$letter-spacing:1px;
+$color:#959595;
+$color_green:#64c29b;
+$color_blue:#00aeef;
+$color_red:#c80000;
 
 @mixin transform($property1 , $property2) {
   font-size: $property1;
   margin: $property2;
 }
-<!--основа-->
-html{
-  width: 100%;
-  height: 100%;
-  body{
-    margin: 0;
-    padding: 0;
-    font-family:$font-familyfont;
-    letter-spacing:$letter-spacing;
-    height: 100%;
-    width: 100%;
-    #osnov{
+    html{
       width: 100%;
       height: 100%;
+      body{
+        margin: 0;
+        padding: 0;
+        font-family:$font-family;
+        letter-spacing:$letter-spacing;
+        height: 100%;
+        width: 100%;
+        #osnov{
+          width: 100%;
+          height: 100%;
+          display: flex;
+        }
+      }
+    }
+
+    #right{
+      width: 35%;
       display: flex;
+      #right_content{
+        margin: 0 auto;
+        width: 80%;
+        text-align: left;
+        h2{
+          @include transform(48px , 20px 0);
+          font-weight:bold;
+        }
+      }
     }
-  }
-}
-<!--правый блок-->
-#right{
-  width: 35%;
-  display: flex;
-  #right_content{
-    margin: 0 auto;
-    width: 80%;
-    text-align: left;
-    h2{
-      @include transform(48px , 20px 0);
-      font-weight:bold;
-    }
-  }
-}
-<!--левый блок -->
+
 #left {
   width: 65%;
   display: flex;
-  background: url(img/background.png);
+  background: url(../img/background.png);
   background-size: cover;
   header{
     width:100%;
@@ -59,13 +58,13 @@ html{
     }
   }
 }
-<!--поле регистрации -->
+
 .block_pole_registr{
   display: flex;
   flex-direction: column;
   width: 100%;
   color: $color;
-  font-size: 20px;
+  @include transform(20px , 0);
   font-weight:bold;
   .pole_registr{
     width: 100%;
@@ -81,15 +80,13 @@ html{
       border-bottom: 1px solid #ccc;
       background: transparent;
       color: #dcdcdc;
-      font-size: 28px;
       outline:none;
       padding-bottom:5px;
-      margin-top: 10px;
-
+      @include transform(28px , 10px 0 0 0)
     }
   }
 }
-<!--ошибки -->
+
 .invalid{
   color: $color_red;
   border: 1px solid $color_red;
@@ -100,22 +97,22 @@ html{
     height: 15px;
   }
   #invalid_password{
-    font-size: 18px;
     width: 220px;
     position: absolute;
     display: none;
+    @include transform(18px , 0);
   }
   #invalid_massage{
-    font-size: 20px;
+    @include transform(20px , 0);
   }
 }
-<!--label и checkbox -->
+
+
 #block_button{
-  margin-top: 50px;
+  @include transform(20px ,50px 0 0 0 );
   display: flex;
   flex-direction: column;
   label {
-    font-size:20px;
     color: $color;
     font-weight:bold;
     #green_text{
@@ -137,18 +134,17 @@ html{
     line-height: 15px;
   }
 }
-<!--кнопка-->
-input[type=submit]{
-  margin-top: 80px;
-  font-size: 30px;
-  font-weight:bold;
-  width:300px;
-  background:linear-gradient(to top,$color_bluef 0%, $color_green 100%);
-  border-radius:30px;
-  padding: 5px 0;
-  outline:none;
-  color: white;
-}
+
+    input[type=submit]{
+      @include transform( 30px , 80px 0 0 0);
+      font-weight:bold;
+      width:300px;
+      background:linear-gradient(to top,$color_blue 0%, $color_green 100%);
+      border-radius:30px;
+      padding: 5px 0;
+      outline:none;
+      color: white;
+    }
 input[type=submit]:hover{
   background:linear-gradient(to top,$color_green 0%,$color_blue 100%);
 }
