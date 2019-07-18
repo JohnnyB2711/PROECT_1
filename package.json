@@ -1,0 +1,28 @@
+{
+  "name": "proect_1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JennyjQuery/TEST.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JennyjQuery/TEST/issues"
+  },
+  "homepage": "https://github.com/JennyjQuery/TEST#readme",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "source-map-support": "^0.5.12"
+  },
+  "devDependencies": {
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-sourcemaps-support": "0.0.1"
+  }
+}
