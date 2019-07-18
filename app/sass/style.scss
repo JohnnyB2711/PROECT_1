@@ -5,10 +5,36 @@ $color_green:#64c29b;
 $color_blue:#00aeef;
 $color_red:#c80000;
 
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+  content: $content;
+  display: $display;
+  position: $pos;
+}
 @mixin transform($property1 , $property2) {
   font-size: $property1;
   margin: $property2;
 }
+@mixin select($property) {
+  -webkit-user-select: $property;
+  -moz-user-select: $property;
+  -ms-user-select: $property;
+  user-select:$property;
+}
+@mixin input-placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+@mixin focus-placeholder {
+  &.placeholder { @content; }
+  &:-moz-placeholder { @content; }
+  &::-moz-placeholder { @content; }
+  &:-ms-input-placeholder { @content; }
+  &::-webkit-input-placeholder { @content; }
+}
+
     html{
       width: 100%;
       height: 100%;
@@ -79,10 +105,18 @@ $color_red:#c80000;
       border: none;
       border-bottom: 1px solid #ccc;
       background: transparent;
-      color: #dcdcdc;
+      color: black;
       outline:none;
       padding-bottom:5px;
-      @include transform(28px , 10px 0 0 0)
+      @include transform(28px , 10px 0 0 0);
+      @include input-placeholder {
+        color: #dcdcdc;
+      }
+    }
+    input[type="text"]:focus{
+      @include input-placeholder {
+        color: transparent;
+      }
     }
   }
 }
@@ -98,7 +132,6 @@ $color_red:#c80000;
   }
   #invalid_password{
     width: 220px;
-    position: absolute;
     display: none;
     @include transform(18px , 0);
   }
@@ -106,45 +139,56 @@ $color_red:#c80000;
     @include transform(20px , 0);
   }
 }
-
-
-#block_button{
-  @include transform(20px ,50px 0 0 0 );
-  display: flex;
-  flex-direction: column;
-  label {
-    color: $color;
-    font-weight:bold;
-    #green_text{
-      color:$color_green;
-    }
+label{
+  display: block;
+  @include transform(20px, 50px 0 0 0);
+  color: #959595;
+  font-weight:bold;
+  #green_text{
+    color:#65c29b;
   }
-  input[type="checkbox"] {
-    width: 25px;
-    height: 25px;
+  .checkbox {
+    display: none;
+  }
+  .checkbox-custom {
+    width: 32px;
+    height: 32px;
     position: relative;
     margin:0 10px 0  0;
-    vertical-align: bottom;
+    vertical-align: middle;
+    border-radius: 3px;
+    cursor: pointer;
+    background:lightgrey;
   }
-  input[type=checkbox]:checked + label:before {
-    content: "\2713";
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
-    color: #f3f3f3;
-    text-align: center;
-    line-height: 15px;
-  }
+}
+.checkbox-custom, label {
+  display: inline-block;
+}
+.checkbox:checked + .checkbox-custom:before {
+  @include pseudo;
+  top: 5px;
+  right: 2px;
+  bottom: 2px;
+  left: 2px;
+  background: url(../img/shape.png) no-repeat;
+}
+.checkbox:checked ~ .checkbox-custom {
+  background:#dcdcdc;
 }
 
-    input[type=submit]{
-      @include transform( 30px , 80px 0 0 0);
-      font-weight:bold;
-      width:300px;
-      background:linear-gradient(to top,$color_blue 0%, $color_green 100%);
-      border-radius:30px;
-      padding: 5px 0;
-      outline:none;
-      color: white;
-    }
-input[type=submit]:hover{
-  background:linear-gradient(to top,$color_green 0%,$color_blue 100%);
-}
+
+
+  input[type=submit] {
+    @include transform(30px, 70px 0 0 0);
+    font-weight: bold;
+    width: 300px;
+    background: linear-gradient(to top, $color_blue 0%, $color_green 100%);
+    border-radius: 30px;
+    padding: 10px 0;
+    outline: none;
+    color: white;
+  }
+
+  input[type=submit]:hover {
+    background: linear-gradient(to top, $color_green 0%, $color_blue 100%);
+  }
