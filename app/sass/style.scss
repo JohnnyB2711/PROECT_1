@@ -4,21 +4,21 @@ $color:#959595;
 $color_green:#64c29b;
 $color_blue:#00aeef;
 $color_red:#c80000;
+$color_lightgreen:#14bc18;
 
 @mixin pseudo($display: block, $pos: absolute, $content: ''){
   content: $content;
   display: $display;
   position: $pos;
 }
+@mixin messages($property1 , $property2 ){
+  border-color:$property1;
+  padding:$property2;
+  color: $property1;
+}
 @mixin transform($property1 , $property2) {
   font-size: $property1;
   margin: $property2;
-}
-@mixin select($property) {
-  -webkit-user-select: $property;
-  -moz-user-select: $property;
-  -ms-user-select: $property;
-  user-select:$property;
 }
 @mixin input-placeholder {
   &.placeholder { @content; }
@@ -34,39 +34,36 @@ $color_red:#c80000;
   &:-ms-input-placeholder { @content; }
   &::-webkit-input-placeholder { @content; }
 }
-
-    html{
-      width: 100%;
-      height: 100%;
-      body{
-        margin: 0;
-        padding: 0;
-        font-family:$font-family;
-        letter-spacing:$letter-spacing;
-        height: 100%;
-        width: 100%;
-        #osnov{
-          width: 100%;
-          height: 100%;
-          display: flex;
-        }
-      }
+html{
+  width: 100%;
+  height: 100%;
+  body{
+    margin: 0;
+    padding: 0;
+    font-family:$font-family;
+    letter-spacing:$letter-spacing;
+    height: 100%;
+    width: 100%;
+    #osnov{
+       width: 100%;
+       height: 100%;
+       display: flex;
     }
-
-    #right{
-      width: 35%;
-      display: flex;
-      #right_content{
-        margin: 0 auto;
-        width: 80%;
-        text-align: left;
-        h2{
-          @include transform(48px , 20px 0);
-          font-weight:bold;
-        }
-      }
-    }
-
+  }
+}
+h2{
+  @include transform(48px , 20px 0);
+  font-weight:bold;
+}
+#right{
+  width: 35%;
+  display: flex;
+  #right_content{
+    margin: 0 auto;
+    width: 80%;
+    text-align: left;
+  }
+}
 #left {
   width: 65%;
   display: flex;
@@ -78,13 +75,11 @@ $color_red:#c80000;
     display: flex;
     justify-content: flex-end;
     padding:5px 10px;
-    header img
-    {
+    header img{
       width:500px;
     }
   }
 }
-
 .block_pole_registr{
   display: flex;
   flex-direction: column;
@@ -92,6 +87,9 @@ $color_red:#c80000;
   color: $color;
   @include transform(20px , 0);
   font-weight:bold;
+  #pole_registr_password {
+    display: flex;
+  }
   .pole_registr{
     width: 100%;
     margin-top: 35px;
@@ -120,23 +118,29 @@ $color_red:#c80000;
     }
   }
 }
-
-.invalid{
-  color: $color_red;
-  border: 1px solid $color_red;
+.message{
+  border: 1px solid;
+  border-radius: 3px;
   padding: 3px 7px;
   text-align: center;
   font-weight:bold;
-  .invalid img{
-    height: 15px;
-  }
-  #invalid_password{
-    width: 220px;
-    display: none;
-    @include transform(18px , 0);
-  }
-  #invalid_massage{
-    @include transform(20px , 0);
+}
+#success_massage{
+  @include transform(20px , 0);
+  @include messages($color_lightgreen, 10px 0);
+}
+#invalid_massage{
+  @include transform(20px , 0);
+  @include messages($color_red , 10px 0);
+  display: none;
+}
+#invalid_password{
+  @include transform(18px ,0 0 5px 0);
+  @include messages($color_red, 3px 7px);
+  position: absolute;
+  img{
+    height: 20px;
+    vertical-align: text-top;
   }
 }
 label{
@@ -176,19 +180,21 @@ label{
   background:#dcdcdc;
 }
 
-
-
-  input[type=submit] {
-    @include transform(30px, 70px 0 0 0);
-    font-weight: bold;
-    width: 300px;
-    background: linear-gradient(to top, $color_blue 0%, $color_green 100%);
-    border-radius: 30px;
-    padding: 10px 0;
-    outline: none;
-    color: white;
-  }
-
-  input[type=submit]:hover {
-    background: linear-gradient(to top, $color_green 0%, $color_blue 100%);
-  }
+.footer{
+  display: flex;
+  flex-direction: column;
+}
+input[type=submit] {
+  @include transform(30px, 70px 0 0 0);
+  font-weight: bold;
+  width: 300px;
+  background: linear-gradient(to top, $color_blue 0%, $color_green 100%);
+  border-radius: 30px;
+  padding: 10px 0;
+  outline: none;
+  color: white;
+  border: none;
+}
+input[type=submit]:focus{
+  background: linear-gradient(to top, $color_green 0%, $color_blue 100%);
+}

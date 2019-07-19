@@ -22,8 +22,11 @@
             <div id="right">
                 <div id="right_content">
                     <h2>Sign Up</h2>
-                    <div class="invalid "id="invalid_massage">
-                        <span>Something went wrong.Please, try again.</span>
+                    <div class="message "id="invalid_massage">
+                        <span >Something went wrong.Please, try again.</span>
+                    </div>
+                    <div class="message "id="success_massage">
+                        <span >You have been successfully registered</span>
                     </div>
                     <div class="block_pole_registr">
                         <div class="pole_registr">
@@ -41,19 +44,18 @@
                         <div class="pole_registr">
                             <span class="text">Password</span>
                             <input type="text" maxlength="25" placeholder="*****">
-
                         </div>
                         <div class="pole_registr">
                             <span class="text">Password Confirmation</span>
-                            <input type="text" maxlength="25" placeholder="******">
+                            <span id="pole_registr_password">
+                                <hr>
+                                <input type="text" maxlength="25" placeholder="******">
+                                <span class="message "id="invalid_password">Passwords don't match <img src="img/invalid.png"></span>
+                            </span>
 
-                            <div class="invalid "id="invalid_password">
-                                <span>Passwords don't match</span>
-                                <img src="img/invalid.png">
-                            </div>
                         </div>
                     </div>
-
+                    <div class="footer">
                     <label>
                         <input class="checkbox" type="checkbox" name="checkbox-test">
                         <span class="checkbox-custom"></span>
@@ -61,7 +63,7 @@
                     </label>
 
                         <input type="submit" value="Sign Up">
-
+                    </div>
                 </div>
             </div>
         </div>

@@ -7,6 +7,9 @@
     height: 100%;
     width: 100%;
     min-width: 980px;
+    #left{
+      min-width: 10%;
+    }
     #right {
       width: 50%;
       position: relative;
@@ -14,9 +17,6 @@
       header {
         left: 0;
       }
-    }
-    #left{
-      min-width: 10%;
     }
   }
 }
@@ -30,20 +30,6 @@
     #right {
       width: 100%;
       height: 100%;
-      #block_button {
-        margin: 20px 0 0 0; }
-    }
-  }
-  #block_button{
-    input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
-      margin:0 10px 0  0;
-    }
-    input[type=submit]{
-      @include transform( 30px , 60px 0 0 0);
-      width:300px;
-      padding: 5px 0;
     }
   }
 }
@@ -52,12 +38,13 @@
 {
   #osnov{
     width: 390px;
+    height: auto;
     padding: 0;
-    #left{
-      display: none;
-    }
     h2{
       @include transform(30px , 10px 0);
+    }
+    #left{
+      display: none;
     }
     #right {
       width: 100%;
@@ -66,7 +53,7 @@
         width: 90%;
       }
       input[type=submit]{
-        @include transform( 20px , 40px 0 0 0);
+        @include transform( 20px , 30px 0 0 0);
       }
       .block_pole_registr{
         @include transform(12px , 0);
@@ -77,41 +64,33 @@
             margin-top: 10px;
           }
           input[type="text"]{
-            @include transform(16px, 10px 0 0 0);
+            @include transform(16px, 5px 0 0 0);
           }
+        }
+      }
+      label{
+        @include transform(15px, 20px 0 0 0);
+        .checkbox-custom {
+          width: 25px;
+          height: 25px;
         }
       }
     }
   }
-  #block_button{
-    @include transform(14px ,10px 0 0 0 );
-    input[type="checkbox"] {
-      width: 20px;
-      height: 20px;
-      margin:0 10px 0  0;
-    }
-    input[type=checkbox]:checked + label:before {
-      line-height: 15px;
-    }
-    input[type=submit]{
-      @include transform( 30px , 80px 0 0 0);
-      width:70%;
-      padding: 5px 0;
-    }
+  .checkbox:checked + .checkbox-custom:before {
+    background-size: contain;
   }
-  .invalid{
-    padding: 3px 7px;
-    .invalid img{
-      height: 10px;
-      display: none;
-    }
-    #invalid_password{
-      width: 220px;
-      display: none;
-      @include transform(18px , 0);
-    }
-    #invalid_massage{
-      @include transform(20px , 0);
+  #success_massage{
+    @include transform(15px , 0);
+  }
+  #invalid_massage{
+    @include transform(15px , 0);
+    display: none;
+  }
+  #invalid_password{
+    @include transform(13px ,0 0 5px 0);
+    img{
+      height: 15px;
     }
   }
 }
