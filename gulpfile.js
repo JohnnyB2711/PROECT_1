@@ -7,6 +7,6 @@ gulp.task('sass', function(){
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest('app/css'))
+        .pipe(gulp.dest('dist/css'))
 
 });

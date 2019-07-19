@@ -67,7 +67,7 @@ h2{
 #left {
   width: 65%;
   display: flex;
-  background: url(../img/background.png);
+  background: url(../../dist/img/background.png);
   background-size: cover;
   header{
     width:100%;
@@ -174,7 +174,7 @@ label{
   right: 2px;
   bottom: 2px;
   left: 2px;
-  background: url(../img/shape.png) no-repeat;
+  background: url(../../dist/img/shape.png) no-repeat;
 }
 .checkbox:checked ~ .checkbox-custom {
   background:#dcdcdc;
