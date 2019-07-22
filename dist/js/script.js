@@ -13,12 +13,16 @@ $(document).ready(function(){
 
     name.blur(function(){
         if (name.val().length > 0){
-                name.removeClass('error');
-                q.removeClass('invalid');
+            //name.parent().removeClass('error');
+            name.removeClass('error');
+            name.css("border-bottom","2px solid #ccc");
 
         }
         else{
-            name.addClass('error');
+            name.css("border-bottom","2px solid #c80000");
+            //name.parent().css("border","3px solid red");
+            //name.parent().addClass('error');
+           // name.addClass('error');
             name.after('<span class="invalid ">Name is required<img src="img/invalid.png"></span>');
 
         }
