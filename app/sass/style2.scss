@@ -87,7 +87,7 @@
     @include transform(15px , 0);
     display: none;
   }
-  #invalid_password{
+  .invalid{
     @include transform(13px ,0 0 5px 0);
     img{
       height: 15px;
