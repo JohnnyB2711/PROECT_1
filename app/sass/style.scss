@@ -101,18 +101,14 @@ h2{
       top:10px;
       margin-top: 10px;
     }
-    input.error {
-      border-bottom-color:red;
-    }
     input[type="text"]{
-      .error{
-        border-bottom-color:red;
+      &.error {
+        border-bottom: 2px solid $color_red;
       }
       width: 100%;
       box-sizing: border-box;
       border: none;
-      border-bottom: 1px solid;
-      border-bottom-color: #ccc;
+      border-bottom: 2px solid #ccc;
       background: transparent;
       color: black;
       outline:none;

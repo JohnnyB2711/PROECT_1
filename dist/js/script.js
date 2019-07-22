@@ -1,34 +1,63 @@
 $(document).ready(function(){
-    var pattern = /^[a-z0-9_-]+@[a-z0-9-]+\.[a-z]{2,6}$/i;
+
+    var val_email = /^[a-z0-9_-]+@[a-z0-9-]+\.([a-z]{1,6}\.)?[a-z]{2,6}$/i;
+    var val_name = /[^a-zA-Zа-яА-Я]/g;
+
     var name = $('#name');
     var username=$('#username');
     var email = $('#email');
     var password = $('#password');
-    name.blur(function(){
-        if(name.val().length > 0){
-            name.removeClass('error');
+    var second_password =$('#second_password');
 
-        }else{
+    var q=$('.pole_registr_flex');
+
+    name.blur(function(){
+        if (name.val().length > 0){
+                name.removeClass('error');
+                q.removeClass('invalid');
+
+        }
+        else{
             name.addClass('error');
-            //name.after('<span class="invalid ">Name is required<img src="img/invalid.png"></span>');
-            //name.css({borderBottomColor:$color_red});
+            name.after('<span class="invalid ">Name is required<img src="img/invalid.png"></span>');
 
         }
     });
     name.focus(function(){
-        name.after(none);
-
     });
+
     email.blur(function(){
         if(email.val() != ''){
-            if(email.val().search(pattern) == 0){
+            if(email.val().search(val_email) == 0){
                 $('#valid').text('Подходит');
+                email.removeClass('error');
             }else{
                 $('#valid').text('Не подходит');
+                email.addClass('error');
             }
         }else{
             email.after('<span class="invalid">Valid email is required <img src="img/invalid.png"></span>');
-            mail.addClass('error');
+            email.addClass('error');
         }
     });
+    password.focus(function () {
+        password.prop('type', type);
+
+
+    })
+    second_password.blur(function () {
+        password1 = password.val();
+        second_password1 = second_password.val();
+        if (second_password1.length > 0){
+            if (password1 = second_password1){
+                second_password.removeClass('error');
+            }
+        }
+        else{
+            second_password.addClass('error');
+            second_password.after('<span class="invalid">Passwords don\'t match <img src="img/invalid.png"></span>');
+
+        }
+
+    })
 });
