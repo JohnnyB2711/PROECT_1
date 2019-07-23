@@ -94,7 +94,9 @@ $(document).ready(function(){
         button.click(myFunction);})
 /*КНОПКА*/
     button.click(function () {
-        if ($(".pole_registr_flex").hasClass("invalid")){
+       // if ($(".pole_registr_flex").hasClass("invalid")){
+        $("#invalid_checkbox").remove();
+        if ($(".pole_registr_flex").find('span')){
             accept.after( '<span class="invalid" id="invalid_checkbox">You mast accept terms and conditions<img src="img/invalid.png"></span>');
         }
 
