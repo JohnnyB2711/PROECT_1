@@ -10,7 +10,7 @@ $(document).ready(function(){
     var password = $('#password');
     var second_password =$('#second_password');
     var button = $('input[type="submit"]');
-    var accept = $('#accept');
+    var accept = $('.accept');
 /*Поле NAME*/
     name.blur(function(){
         $("#invalid_name").remove();
@@ -94,12 +94,30 @@ $(document).ready(function(){
         button.click(myFunction);})
 /*КНОПКА*/
     button.click(function () {
-        $("#invalid_checkbox").remove();
-        if ($('input[name="checkbox-test"]').is(':checked')){
-
-        }else{
-            button.before( '<span class="invalid" id="invalid_checkbox">You mast accept terms and conditions<img src="img/invalid.png"></span>');
+        if ($(".pole_registr_flex").hasClass("invalid")){
+            accept.after( '<span class="invalid" id="invalid_checkbox">You mast accept terms and conditions<img src="img/invalid.png"></span>');
         }
+
+
+
+
+        /*
+                      if ((name.val()=="") || (username.val()=="") || (email.val()=="") || (password.val()=="") || (second_password.val()=="")){
+                  accept.after( '<span class="invalid" id="invalid_checkbox">You mast accept terms and conditions<img src="img/invalid.png"></span>');
+              }
+        if ($(".pole_registr_flex").hasClass("invalid")){
+            $("#invalid_checkbox").remove();
+            if ($('input[name="checkbox-test"]').is(':checked')) {
+                accept.after( '<span class="invalid" id="invalid_checkbox">You mast accept terms and conditions<img src="img/invalid.png"></span>');
+            }
+            else {
+                $("#invalid_checkbox").remove();
+                button.css("color","black");
+            }
+        }
+        else{
+            accept.after( '<span class="invalid" id="invalid_checkbox">You mast accept terms and conditions<img src="img/invalid.png"></span>');
+        }*/
     });
 
 });

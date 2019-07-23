@@ -89,6 +89,7 @@ h2{
   flex-direction: column;
   width: 100%;
   color: $color;
+  padding-top: 50px;
   @include transform(20px , 0);
   font-weight:bold;
   .pole_registr_flex {
@@ -127,19 +128,21 @@ h2{
   }
 }
 
-#success_massage{
+#success_massage , #invalid_massage{
   @include transform(20px , 0);
-  @include messages(1px solid,3px,$color_lightgreen, 10px 0);
-  display: none;
   text-align: center;
   font-weight:bold;
+  position: absolute;
+  width: inherit;
+  display: block;
+  box-sizing: border-box;
 }
 #invalid_massage{
-  @include transform(20px , 0);
   @include messages(1px solid,3px,$color_red , 10px 0);
-  text-align: center;
-  font-weight:bold;
-
+}
+#success_massage{
+  @include messages(1px solid,3px,$color_lightgreen, 10px 0);
+  display: none;
 }
 .invalid{
   @include transform(18px ,10px 0 5px 0);
@@ -154,8 +157,8 @@ h2{
   }
 }
 #invalid_checkbox{
-  position: relative;
-  margin-top: 30px;
+  display: block;
+  margin-top:10px;
 }
 label{
   display: block;
@@ -199,7 +202,7 @@ label{
   flex-direction: column;
 }
 input[type=submit] {
-  @include transform(30px, 40px 0 0 0);
+  @include transform(30px, 70px 0 0 0);
   font-weight: bold;
   width: 300px;
   background: linear-gradient(to top, $color_blue 0%, $color_green 100%);
