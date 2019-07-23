@@ -93,10 +93,33 @@ $(document).ready(function(){
         myFunction(); //call it here
         button.click(myFunction);})
 /*КНОПКА*/
+
     button.click(function () {
-       // if ($(".pole_registr_flex").hasClass("invalid")){
-        $("#invalid_checkbox").remove();
-        if ($(".pole_registr_flex").find('span')){
+        $('.pole_registr_flex').each(function(){
+            if ($(this).is($('.invalid'))){
+                accept.after( '<span class="invalid" id="invalid_checkbox">You mast accept terms and conditions<img src="img/invalid.png"></span>');
+            }
+        });
+
+        /*
+        $.each($('.pole_registr_flex'), function () {
+            if ($(this).is("#invalid")) {
+                accept.after( '<span class="invalid" id="invalid_checkbox">You mast accept terms and conditions<img src="img/invalid.png"></span>');
+            }
+
+        });
+        /*$.each($('.pole_registr_flex'), function () {
+            if ($(this).hasClass("invalid")){
+                accept.after( '<span class="invalid" id="invalid_checkbox">You mast accept terms and conditions<img src="img/invalid.png"></span>');
+            }
+        });
+
+        $('.pole_registr_flex').children('.invalid')
+
+
+       // if ($(".pole_registr_flex").find('span'))if ($(".pole_registr_flex").hasClass("invalid")){
+        /*$("#invalid_checkbox").remove();
+        if ($(".pole_registr_flex").hasClass("invalid")){
             accept.after( '<span class="invalid" id="invalid_checkbox">You mast accept terms and conditions<img src="img/invalid.png"></span>');
         }
 
