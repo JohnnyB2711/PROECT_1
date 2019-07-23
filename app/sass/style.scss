@@ -153,6 +153,10 @@ h2{
     margin-left: 10px;
   }
 }
+#invalid_checkbox{
+  position: relative;
+  margin-top: 30px;
+}
 label{
   display: block;
   @include transform(20px, 50px 0 0 0);
@@ -195,7 +199,7 @@ label{
   flex-direction: column;
 }
 input[type=submit] {
-  @include transform(30px, 70px 0 0 0);
+  @include transform(30px, 40px 0 0 0);
   font-weight: bold;
   width: 300px;
   background: linear-gradient(to top, $color_blue 0%, $color_green 100%);
