@@ -97,12 +97,7 @@ $(document).ready(function () {
         if (!($('input[name="checkbox-test"]').is(':checked'))) {
             accept.after('<span class="invalid" id="invalid_checkbox">You mast accept terms and conditions<img src="img/invalid.png"></span>');
         }
-
-
-        if ($('.pole_registr_flex').find("span.invalid").length != 0) {
-            event.preventDefault();
-        }
-        if ($('.footer').find("span.invalid")==false) {
+        if ($('.mistakes').find("span.invalid").length != 0) {
             event.preventDefault();
         }
     });
