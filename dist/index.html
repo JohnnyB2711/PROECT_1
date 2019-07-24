@@ -1,82 +1,83 @@
 <!doctype html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Smartech</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" type="text/css" href="css/style2.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" charset="utf-8"></script>
-        <script type="text/javascript" src="js/script.js" charset="utf-8"></script>
+<head>
+    <meta charset="utf-8">
+    <title>Smartech</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style2.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/script.js" charset="utf-8"></script>
+
+</head>
+<body>
+<div id="osnov">
+    <div id="left">
+        <header><img src="img/logo.png"></header>
+    </div>
 
 
-    </head>
-    <body>
-        <div id="osnov">
-            <div id="left">
-                <header> <img src="img/logo.png"></header>
+    <div id="right">
+        <div id="right_content">
+            <h2>Sign Up</h2>
+            <div class="message " id="invalid_massage">
+                <span>Something went wrong.Please, try again.</span>
             </div>
+            <div class="message " id="success_massage">
+                <span>You have been successfully registered</span>
+            </div>
+            <form id="form_reg">
+                <div class="block_pole_registr">
 
 
-
-            <div id="right">
-                <div id="right_content">
-                    <h2>Sign Up</h2>
-                    <div class="message "id="invalid_massage">
-                        <span >Something went wrong.Please, try again.</span>
-                    </div>
-                    <div class="message "id="success_massage">
-                        <span >You have been successfully registered</span>
-                    </div>
-                    <div class="block_pole_registr">
-                        <form id="form_reg"action="URL">
-
-                            <div class="pole_registr">
-                                <span class="text">Full name</span>
-                                <span class="pole_registr_flex">
+                    <div class="pole_registr">
+                        <span class="text">Full name</span>
+                        <span class="pole_registr_flex">
                                     <input type="text" id="name" placeholder="Name...">
                                 </span>
-                            </div>
+                    </div>
 
-                            <div class="pole_registr">
-                                <span class="text">Username</span>
-                                <span class="pole_registr_flex">
+                    <div class="pole_registr">
+                        <span class="text">Username</span>
+                        <span class="pole_registr_flex">
                                     <input type="text" id="username" placeholder="Username...">
                                 </span>
-                            </div>
+                    </div>
 
-                            <div class="pole_registr">
-                                <span class="text">Email</span>
-                                <span class="pole_registr_flex">
+                    <div class="pole_registr">
+                        <span class="text">Email</span>
+                        <span class="pole_registr_flex">
                                     <input type="text" id="email" placeholder="Email address...">
                                 </span>
-                            </div>
-
-                            <div class="pole_registr">
-                                <span class="text">Password</span>
-                                <span class="pole_registr_flex">
-                                    <input type="text" id="password" placeholder="*****">
-                                </span>
-                            </div>
-                            <div class="pole_registr">
-                                <span class="text">Password Confirmation</span>
-                                <span class="pole_registr_flex">
-                                    <input type="text" id="second_password" placeholder="******">
-                                </span>
-                            </div>
-                        </form>
                     </div>
-                    <div class="footer">
-                        <label>
-                            <input class="checkbox" type="checkbox" name="checkbox-test">
-                            <span class="checkbox-custom"></span>
-                            <span class="accept">I accept <span id="green_text"> Terms amd Condition</span></span>
-                        </label>
 
-                        <input type="submit" value="Sign Up">
+                    <div class="pole_registr">
+                        <span class="text">Password</span>
+                        <span class="pole_registr_flex">
+                                    <input type="password" id="password" placeholder="******">
+                                </span>
                     </div>
+                    <div class="pole_registr">
+                        <span class="text">Password Confirmation</span>
+                        <span class="pole_registr_flex">
+                                    <input type="password" id="second_password" placeholder="******">
+                                </span>
+                    </div>
+
                 </div>
-            </div>
+                <div class="footer">
+                    <label>
+                        <input class="checkbox" type="checkbox" name="checkbox-test">
+                        <span class="checkbox-custom"></span>
+                        <span class="accept">I accept <span id="green_text"> Terms amd Condition</span></span>
+
+                    </label>
+
+                    <input type="submit" value="Sign Up">
+                </div>
+            </form>
         </div>
-    </body>
+    </div>
+</div>
+</body>
 </html>

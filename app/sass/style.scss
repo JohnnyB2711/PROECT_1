@@ -103,7 +103,7 @@ h2{
       top:10px;
       margin-top: 10px;
     }
-    input[type="text"]{
+    input{
       &.error {
         border-bottom: 2px solid $color_red;
       }
@@ -120,14 +120,13 @@ h2{
         color: #dcdcdc;
       }
     }
-    input[type="text"]:focus{
+    input:focus{
       @include input-placeholder {
         color: transparent;
       }
     }
   }
 }
-
 #success_massage , #invalid_massage{
   @include transform(20px , 0);
   text-align: center;

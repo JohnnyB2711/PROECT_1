@@ -64,7 +64,7 @@
             top:5px;
             margin-top: 10px;
           }
-          input[type="text"]{
+          input{
             @include transform(16px, 5px 0 0 0);
           }
         }
