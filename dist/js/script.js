@@ -13,27 +13,19 @@ $(document).ready(function () {
     var button = $('input[type="submit"]');
     var form = $('#form_reg');
     var checkbox = $('input[name="checkbox-test"]');
+    var label = $('label');
     var mas = [name, username, email, password, second_password];
 
     /*Функция идентификации ошибок*/
     function Message(text) {
         return ("<span class=\"invalid\">") + text + ("<img src=\"img/invalid.png\"></span>");
     }
-
-    function Color_border(isinvalid, element) {
-        if (isinvalid) {
-            element.css("border-bottom", "2px solid #c80000");
-        } else {
+    function Proverca_poley(element, text, isvalid) {
+        element.siblings('.invalid').remove();
+        if (isvalid) {
             element.css("border-bottom", "2px solid #ccc");
-        }
-    };
-
-    function Proverca_poley(element, text, isinvalid) {
-        element.siblings().remove();
-        if (isinvalid) {
-            Color_border(false, element);
         } else {
-            Color_border(true, element);
+            element.css("border-bottom", "2px solid #c80000");
             element.after(Message(text));
         }
     };
@@ -79,19 +71,23 @@ $(document).ready(function () {
         Proverca_poley(second_password, 'Passwords don\'t match', password.val() == second_password.val());
     });
     /*ЧЕКБОКС*/
-    checkbox.click(function () {
+    /*label.click(function() {
         button.siblings('.invalid').remove();
-        if (!((checkbox).is(':checked'))) {
-            button.after(Message('You mast accept terms and conditions'));
+        if(!((checkbox).is(':checked'))){
+            label.after(Message('You mast accept terms and conditions'));
         }
+    });*/
+    label.click(function () {
+        Proverca_poley(label, 'You mast accept terms and conditions', !(checkbox).is(':checked'));
     });
+
     /*КНОПКА*/
     form.submit(function (event) {
         mas.forEach(function (element) {
             element.blur();
         });
         button.siblings('.invalid').remove();
-        if (!($('input[name="checkbox-test"]').is(':checked'))) {
+        if (!((label).is(':checked'))) {
             button.after(Message('You mast accept terms and conditions'));
         }
         if ($('.mistakes').find("span.invalid").length != 0) {
