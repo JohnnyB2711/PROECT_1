@@ -3,7 +3,7 @@ $(document).ready(function () {
     var val_email = /^[a-z0-9_-]+@[a-z0-9-]+\.([a-z]{1,6}\.)?[a-z]{2,6}$/i;
     var val_name = /^[a-zа-яё]*$/i;
     var val_password = /[0-9a-zA-Z!@#$%^&*]{6,}/;
-    var val_spassword = /[$('#password')]/ig;
+    //var val_spassword = /[$('#password')]/ig;
 
     var name = $('#name');
     var username = $('#username');
@@ -28,8 +28,8 @@ $(document).ready(function () {
         }
     };
 
-    function Proverca_poley(element, text, isinvalid, k) {
-        name.siblings().remove();
+    function Proverca_poley(element, text, isinvalid) {
+        element.siblings().remove();
         if (isinvalid) {
             Color_border(false, element);
         } else {
@@ -54,61 +54,31 @@ $(document).ready(function () {
         Proverca_poley(username, 'Введите только буквы!', username.val().search(val_name) == 0);
     });
     /*Поле EMAIL*/
-    Proverca_poley(email, 'Valid email is required', val_email);
-    /*
     email.blur(function () {
-        text='Valid email is required';
-        email.siblings().remove();
-        if (email.val() != '') {
-            if (email.val().search(val_email) == 0) {
-                Color_border(false , email);
-            } else {
-                Color_border(true , email);
-                email.after(Message(text));
-                ;
-            }
-        } else {
-            Color_border(true , email);
-            email.after(Message(text));
-            ;
+        if (email.val() == '') {
+            Proverca_poley(email, 'Valid email is required', false);
+            return
         }
-    });*/
-    ;
+        Proverca_poley(email, 'Некорректный email!', email.val().search(val_email) == 0);
+    });
     /*Поле PASSWORD*/
-    Proverca_poley(password, 'Password is required', val_password);
-    /*password.blur(function () {
-        password.siblings().remove();
-        if (password.val().length > 5) {
-            Color_border(false ,password);
-        } else {
-            proverca(true , email);
-            Color_border.after(Message(text));
+    password.blur(function () {
+        if (password.val() == '') {
+            Proverca_poley(password, 'Password is required', false);
+            return
         }
-    });*/
+        Proverca_poley(password, 'Не меньше 6 символов!', password.val().search(val_password) == 0);
+    });
     ;
     /*Поле SECONDPASSWORD*/
-    Proverca_poley(second_password, 'Passwords don\'t match', val_spassword);
-    /*second_password.blur(function () {
-        text='Passwords don\'t match';
-       second_password.siblings().remove();
-        if (second_password.val() != '') {
-            //if (password.val() == second_password.val()) {
-            if (second_password.val().search(password.val())==0) {
-                Color_border(false , second_password);
-            }
-            else{
-                Color_border(true , second_password);
-                second_password.after(Message(text));
-            }
-        } else {
-            Color_border(true , second_password);
-            second_password.after(Message(text));
+    second_password.blur(function () {
+        if (second_password.val() == '') {
+            Proverca_poley(second_password, 'Password is required', false);
+            return
         }
-    })
+        Proverca_poley(second_password, 'Passwords don\'t match', password.val() == second_password.val());
+    });
     /*ЧЕКБОКС*/
-    ;
-
-
     checkbox.click(function () {
         button.siblings('.invalid').remove();
         if (!((checkbox).is(':checked'))) {
