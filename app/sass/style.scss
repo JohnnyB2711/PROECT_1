@@ -160,7 +160,6 @@ h2{
   margin-top:10px;
 }
 label{
-  display: block;
   @include transform(20px, 50px 0 0 0);
   color: #959595;
   font-weight:bold;
@@ -199,6 +198,9 @@ label{
 .footer{
   display: flex;
   flex-direction: column;
+  & .invalid{
+    margin-top: 90px;
+  }
 }
 input[type=submit] {
   @include transform(30px, 70px 0 0 0);
