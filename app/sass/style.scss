@@ -182,6 +182,7 @@ label{
 }
 .checkbox-custom, label {
   display: inline-block;
+  border: none !important;
 }
 .checkbox:checked + .checkbox-custom:before {
   @include pseudo;

@@ -71,14 +71,8 @@ $(document).ready(function () {
         Proverca_poley(second_password, 'Passwords don\'t match', password.val() == second_password.val());
     });
     /*ЧЕКБОКС*/
-    /*label.click(function() {
-        button.siblings('.invalid').remove();
-        if(!((checkbox).is(':checked'))){
-            label.after(Message('You mast accept terms and conditions'));
-        }
-    });*/
     label.click(function () {
-        Proverca_poley(label, 'You mast accept terms and conditions', !(checkbox).is(':checked'));
+        Proverca_poley(label, 'You mast accept terms and conditions', (checkbox).is(':checked'));
     });
 
     /*КНОПКА*/
@@ -86,10 +80,8 @@ $(document).ready(function () {
         mas.forEach(function (element) {
             element.blur();
         });
-        button.siblings('.invalid').remove();
-        if (!((label).is(':checked'))) {
-            button.after(Message('You mast accept terms and conditions'));
-        }
+        Proverca_poley(label, 'You mast accept terms and conditions', (checkbox).is(':checked'));
+
         if ($('.mistakes').find("span.invalid").length != 0) {
             event.preventDefault();
         }
