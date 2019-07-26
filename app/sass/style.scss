@@ -127,6 +127,7 @@ h2{
     }
   }
 }
+.m .invalid{}
 .m{
   @include transform(20px , 0);
   color: $color_red !important;

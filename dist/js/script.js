@@ -15,8 +15,8 @@ $(document).ready(function () {
     var checkbox = $('input[name="checkbox-test"]');
     var label = $('label');
     var block1 = $('.invalid_message');
-    var block2 =$('.success_massage');
-    var block3 =$('.m');
+    var block2 = $('.success_massage');
+    var block3 = $('.m');
     var mas = [name, username, email, password, second_password];
 
     /*Функция идентификации ошибок*/
@@ -95,16 +95,17 @@ $(document).ready(function () {
                     contentType: 'application/json',
                     data: JSON.stringify({
 
-                        "full_name": "dsfs",
-                        "username": "Gfp",
-                        "email": "redhok@75.com",
-                        "password": "123456",
-                        "password_confirmation": "123456"
+                        "full_name": name.val(),
+                        "username": username.val(),
+                        "email": email.val(),
+                        "password": password.val(),
+                        "password_confirmation": second_password.val()
                     }),
                     success: function (data) {
-                        //block2.append(Message(name.val() + ', you have been successfully registered'));
-                        block3.css("color","green").append(Message(name.val() + ', you have been successfully registered'));
+                        block3.append(Message(name.val() + ', you have been successfully registered'));
+                        form[0].reset();
                     },
+
                     error: function (data) {
                         block3.append(Message('Something went wrong.Please,' + name.val() + ',try again.'));
                     }
