@@ -14,12 +14,14 @@ $(document).ready(function () {
     var form = $('#form_reg');
     var checkbox = $('input[name="checkbox-test"]');
     var label = $('label');
+    var block=$('h2');
     var mas = [name, username, email, password, second_password];
 
     /*Функция идентификации ошибок*/
     function Message(text) {
         return ("<span class=\"invalid\">") + text + ("<img src=\"img/invalid.png\"></span>");
     }
+
     function Proverca_poley(element, text, isvalid) {
         element.siblings('.invalid').remove();
         if (isvalid) {
@@ -74,7 +76,6 @@ $(document).ready(function () {
     label.click(function () {
         Proverca_poley(label, 'You mast accept terms and conditions', (checkbox).is(':checked'));
     });
-
     /*КНОПКА*/
     form.submit(function (event) {
         mas.forEach(function (element) {
@@ -82,8 +83,52 @@ $(document).ready(function () {
         });
         Proverca_poley(label, 'You mast accept terms and conditions', (checkbox).is(':checked'));
 
-        if ($('.mistakes').find("span.invalid").length != 0) {
+        if ($('.mistakes').find("span.invalid").length == 0) {
             event.preventDefault();
+            $.ajax(
+                {
+                    url: "https://trainee.smartru.com/api/application",
+                    dataType: 'json',
+                    type: "POST",
+                    contentType: 'application/json',
+                    data: JSON.stringify({
+
+                        "full_name": "dsfs",
+                        "username": "Gfp",
+                        "email": "redhok@75.com",
+                        "password": "123456",
+                        "password_confirmation": "123456"
+                    }),
+                    success:function (data) {
+                        if ( data )
+                        {
+                            block.after(Message(data.full_name+', You have been successfully registered'));
+                            //(Proverca_poley(block,"data+', You have been successfully registered'"),true);
+                        }
+                        else
+                        {
+                            block.after(Message('Something went wrong.Please,'+data+'try again.'));
+                        }
+                    }
+
+                    });
+                    //success: onAjaxSuccess
+                    //success: otvet_servera(true,data)
+                    /*success: function(data) {
+                        var data = $.parseJSON(data);
+                        alert(data.full_name + ' и ' + data.username);
+                    }
+                }
+            );
+            function otvet_servera(status) {
+                //block.siblings('.invalid').remove();
+                if (status){
+                    block.after(Message('You have been successfully registered'+ data));
+                }
+                else{
+                    block.after(Message('Something went wrong.Please, try again.',data));
+                }
+            }*/
         }
     });
 })
