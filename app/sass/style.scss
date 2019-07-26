@@ -127,6 +127,31 @@ h2{
     }
   }
 }
+.m{
+  @include transform(20px , 0);
+  color: $color_red !important;
+  img{
+    display: none;
+  }
+}
+.invalid_massage .invalid{
+  @include transform(20px , 0);
+  display: block;
+  box-sizing: border-box;
+  @include messages(1px solid,3px,$color_red , 10px 0);
+  img{
+    display: none;
+  }
+}
+.success_massage .invalid{
+  @include transform(20px , 0);
+  display: block;
+  box-sizing: border-box;
+  @include messages(1px solid,3px,$color_lightgreen, 10px 0);
+  img{
+    display: none;
+  }
+}
 .invalid{
   @include transform(18px ,10px 0 5px 0);
   @include messages(1px solid,3px,$color_red, 3px 7px);
@@ -142,15 +167,6 @@ h2{
 #invalid_checkbox{
   display: block;
   margin-top:10px;
-}
-.m{
-  margin: 0;
-  .invalid{
-    display: block;
-    img{
-      display: none;
-    }
-  }
 }
 label{
   @include transform(20px, 50px 0 0 0);
