@@ -1,90 +1,85 @@
 $(document).ready(function () {
+  // объявила список полей как объект, чтобы обращаться к ним как fields.username
+  // и иметь возможность пройтись по ним циклом
+  var fields = {
+    name: $('#name'),
+    username: $('#username'),
+    email: $('#email'),
+    password: $('#password'),
+    passwordConfirmation: $('#password-confirmation'),
+    terms: $('#terms')
+  }
 
-    var val_email = /^[a-z0-9_-]+@[a-z0-9-]+\.([a-z]{1,6}\.)?[a-z]{2,6}$/i;
-    var val_name = /^[a-zа-яё]*$/i;
-    var val_password = /[0-9a-zA-Z!@#$%^&*]{6,}/;
-    //var val_spassword = /[$('#password')]/ig;
+  // объявила, как отдельные функции
+  // делается это затем, чтобы когда вызываешь .blur, человеку, читающему код, сразу стало понятно, что случается, когда происходит blur
+  // валидируется поле name
+  var validateName = function () {
+    // this - это html-элемент, обернув его в $, получаем все возможности jquery
+    var $this = $(this)
 
-    var name = $('#name');
-    var username = $('#username');
-    var email = $('#email');
-    var password = $('#password');
-    var second_password = $('#second_password');
-    var button = $('input[type="submit"]');
-    var form = $('#form_reg');
-    var checkbox = $('input[name="checkbox-test"]');
-    var label = $('label');
-    var mas = [name, username, email, password, second_password];
-
-    /*Функция идентификации ошибок*/
-    function Message(text) {
-        return ("<span class=\"invalid\">") + text + ("<img src=\"img/invalid.png\"></span>");
+    // сокращенная запись $this.val() == '', это следствие слабой типизации. выражение в if будет всегда автоматически приведено к типу boolean
+    // пустой объект и пустой массив это true! это нужно обязательно помнить
+    if (!$this.val()) {
+      validateField($this, true, 'Name is required')
+      return
     }
-    function Proverca_poley(element, text, isvalid) {
-        element.siblings('.invalid').remove();
-        if (isvalid) {
-            element.css("border-bottom", "2px solid #ccc");
-        } else {
-            element.css("border-bottom", "2px solid #c80000");
-            element.after(Message(text));
-        }
-    };
-    /*Поле NAME*/
-    name.blur(function () {
-        if (name.val() == '') {
-            Proverca_poley(name, 'Name is required', false);
-            return
-        }
-        Proverca_poley(name, 'Введите только буквы!', name.val().search(val_name) == 0);
-    });
-    /*Поле USERNAME*/
-    username.blur(function () {
-        if (username.val() == '') {
-            Proverca_poley(username, 'User name is required', false);
-            return
-        }
-        Proverca_poley(username, 'Введите только буквы!', username.val().search(val_name) == 0);
-    });
-    /*Поле EMAIL*/
-    email.blur(function () {
-        if (email.val() == '') {
-            Proverca_poley(email, 'Valid email is required', false);
-            return
-        }
-        Proverca_poley(email, 'Некорректный email!', email.val().search(val_email) == 0);
-    });
-    /*Поле PASSWORD*/
-    password.blur(function () {
-        if (password.val() == '') {
-            Proverca_poley(password, 'Password is required', false);
-            return
-        }
-        Proverca_poley(password, 'Не меньше 6 символов!', password.val().search(val_password) == 0);
-    });
-    ;
-    /*Поле SECONDPASSWORD*/
-    second_password.blur(function () {
-        if (second_password.val() == '') {
-            Proverca_poley(second_password, 'Password is required', false);
-            return
-        }
-        Proverca_poley(second_password, 'Passwords don\'t match', password.val() == second_password.val());
-    });
-    /*ЧЕКБОКС*/
-    label.click(function () {
-        Proverca_poley(label, 'You mast accept terms and conditions', (checkbox).is(':checked'));
-    });
 
-    /*КНОПКА*/
-    form.submit(function (event) {
-        mas.forEach(function (element) {
-            element.blur();
-        });
-        Proverca_poley(label, 'You mast accept terms and conditions', (checkbox).is(':checked'));
+    // оператор === учитывает тип операндов. оператор == приводит операнды к одному типу. это бывает полезно, но если есть возможность
+    // лучше использовать всегда ===. пример: 0 === '' (false), 0 == '' (true)
+    validateField($this, $this.val().search(/^[a-zа-яё]*$/i) !== 0, 'Name must contain only alphabetic characters')
+  }
+  var validateUsername = function () {
+    var $this = $(this)
+    if (!$this.val()) {
+      validateField($this, true, 'User name is required')
+      return
+    }
+    validateField($this, $this.val().search(/^[a-z]*$/i) !== 0, 'Username must contain only latin characters')
+  }
+  var validateTerms = function () {
+    var $this = $(this)
+    validateField($this, !$this.is(':checked'), 'You must accept terms and conditions')
+  }
 
-        if ($('.mistakes').find("span.invalid").length != 0) {
-            event.preventDefault();
-        }
-    });
+  var validateAndSendForm = function (event) {
+    // всегда должно выполняться. либо делаем запрос, либо валидируем, показываем ошибки
+    // перехода на другую страницу быть не должно
+    event.preventDefault()
+
+    // так выглядит цикл для объектов и массивов, в key будет ключ объекта или индекс массива
+    // forEach работает только для массивов
+    for (var key in fields) {
+      fields[key].blur()
+    }
+    validateField(fields.terms, !fields.terms.is(':checked'), 'You must accept terms and conditions')
+
+    // я добавила только класс invalid к div-обертке. все остальное вынесла в css
+    if ($('.form-field.invalid').length === 0) {
+      // request to server
+    }
+  }
+
+  // показываем названиями функций, что именно мы собираемся сделать при каждом событии
+  $('form').submit(validateAndSendForm)
+  fields.name.blur(validateName)
+  fields.username.blur(validateUsername)
+
+  // используем change вместо click. тогда не нужно дополнительно объявлять переменную для label
+  fields.terms.change(validateTerms)
 })
-;
+
+function validateField ($element, isError, errorText) {
+  var $formField = $element.closest('.form-field') // обертка для всех полей
+  var $message = $formField.find('.form-message') // сообщение уже внутри каждого поля есть в html
+
+  if (isError) {
+    // с помощью css-класса скрываем/показываем ошибку и добавляем рамку
+    // текст просто пишем в готовый div
+    $formField.addClass('invalid')
+    $message.text(errorText)
+  } else {
+    // убираем класс, убирается рамка и ошибка. сам текст нам не мешает, когда он скрыт
+    $formField.removeClass('invalid')
+  }
+}
+

@@ -1,81 +1,83 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>Smartech</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/style2.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" charset="utf-8"></script>
-    <script type="text/javascript" src="js/script.js" charset="utf-8"></script>
-
+  <meta charset="UTF-8">
+  <title>Example</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"
+          charset="utf-8"></script>
+  <script type="text/javascript" src="js/script.js" charset="utf-8"></script>
 </head>
 <body>
-<div id="osnov">
-    <div id="left">
-        <header><img src="img/logo.png"></header>
+<div class="bg">
+  <header>
+    <div class="logo">
+      <img src="img/logo.png" alt="">
+    </div>
+  </header>
+</div>
+<div class="form">
+  <h1>Sign Up</h1>
+
+  <div class="form-message error-message">dsfdf</div>
+  <div class="form-message success-message"></div>
+
+  <form>
+    <div class="form-field">
+      <label for="name">Full name</label>
+      <div class="field-wrap">
+        <input type="text" id="name" placeholder="Name...">
+        <div class="form-message error-message"></div>
+      </div>
     </div>
 
-
-    <div id="right">
-        <div id="right_content">
-            <h2>Sign Up</h2>
-            <div class="message " id="invalid_massage">
-                <span>Something went wrong.Please, try again.</span>
-            </div>
-            <div class="message " id="success_massage">
-                <span>You have been successfully registered</span>
-            </div>
-            <form id="form_reg">
-                <div class="block_pole_registr">
-
-
-                    <div class="pole_registr">
-                        <span class="text">Full name</span>
-                        <span class="pole_registr_flex mistakes">
-                                    <input type="text" id="name" placeholder="Name...">
-                                </span>
-                    </div>
-
-                    <div class="pole_registr">
-                        <span class="text">Username</span>
-                        <span class="pole_registr_flex mistakes">
-                                    <input type="text" id="username" placeholder="Username...">
-                                </span>
-                    </div>
-
-                    <div class="pole_registr">
-                        <span class="text">Email</span>
-                        <span class="pole_registr_flex mistakes">
-                                    <input type="text" id="email" placeholder="Email address...">
-                                </span>
-                    </div>
-
-                    <div class="pole_registr">
-                        <span class="text">Password</span>
-                        <span class="pole_registr_flex mistakes">
-                                    <input type="password" id="password" placeholder="******">
-                                </span>
-                    </div>
-                    <div class="pole_registr">
-                        <span class="text">Password Confirmation</span>
-                        <span class="pole_registr_flex mistakes">
-                                    <input type="password" id="second_password" placeholder="******">
-                                </span>
-                    </div>
-
-                </div>
-                <div class="footer mistakes">
-                    <label>
-                        <input class="checkbox" type="checkbox" name="checkbox-test">
-                        <span class="checkbox-custom"></span>
-                        <span>I accept <span id="green_text"> Terms amd Condition</span></span>
-                    </label>
-                    <input type="submit" value="Sign Up">
-                </div>
-            </form>
-        </div>
+    <div class="form-field">
+      <label for="username">Username</label>
+      <div class="field-wrap">
+        <input type="text" id="username" placeholder="Username...">
+        <div class="form-message error-message"></div>
+      </div>
     </div>
+
+    <div class="form-field">
+      <label for="email">Email</label>
+      <div class="field-wrap">
+        <input type="text" id="email" placeholder="Email address...">
+        <div class="form-message error-message"></div>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label for="password">Password</label>
+      <div class="field-wrap">
+        <input type="password" id="password" placeholder="******">
+        <div class="form-message error-message"></div>
+      </div>
+    </div>
+    <div class="form-field">
+      <label for="password-confirmation">Password Confirmation</label>
+      <div class="field-wrap">
+        <input type="password" id="password-confirmation" placeholder="******">
+        <div class="form-message error-message"></div>
+      </div>
+    </div>
+
+    <div class="form-field form-checkbox">
+      <label for="terms">
+        <input type="checkbox" id="terms">
+        <span class="checkmark"></span>
+        <span>I accept <a href="#"> Terms and Conditions</a></span>
+      </label>
+      <div class="form-message error-message"></div>
+    </div>
+
+    <div class="form-button">
+      <button type="submit">
+        Sign Up
+      </button>
+    </div>
+  </form>
 </div>
 </body>
 </html>

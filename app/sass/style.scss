@@ -1,219 +1,181 @@
-$font-family:Verdana,serif;
-$letter-spacing:1px;
-$color:#959595;
-$color_green:#000;
-$color_blue:#00aeef;
-$color_red:#c80000;
-$color_lightgreen:#14bc18;
+$font-family: Verdana, sans-serif;
+$color-white: #fff;
+$color-grey-light: #dcdcdc;
+$color-grey: #959595;
+$color-green: #62c29c;
+$color-blue: #00aeef;
+$color-error: #c80000;
 
-@mixin pseudo($display: block, $pos: absolute, $content: ''){
-  content: $content;
-  display: $display;
-  position: $pos;
-}
-@mixin messages($property3,$property4,$property1 , $property2 ){
-  border: $property3;
-  border-radius: $property4;
-  border-color:$property1;
-  padding:$property2;
-  color: $property1;
-}
-@mixin transform($property1 , $property2) {
-  font-size: $property1;
-  margin: $property2;
-}
-@mixin input-placeholder {
-  &.placeholder { @content; }
-  &:-moz-placeholder { @content; }
-  &::-moz-placeholder { @content; }
-  &:-ms-input-placeholder { @content; }
-  &::-webkit-input-placeholder { @content; }
-}
-@mixin focus-placeholder {
-  &.placeholder { @content; }
-  &:-moz-placeholder { @content; }
-  &::-moz-placeholder { @content; }
-  &:-ms-input-placeholder { @content; }
-  &::-webkit-input-placeholder { @content; }
-}
-
-html{
-  width: 100%;
+html, body {
   height: 100%;
-  body{
-    margin: 0;
-    padding: 0;
-    font-family:$font-family;
-    letter-spacing:$letter-spacing;
-    height: 100%;
-    width: 100%;
-    #osnov{
-       width: 100%;
-       height: 100%;
-       display: flex;
-    }
+  margin: 0;
+  padding: 0;
+  font-family: $font-family;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  background: blue;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+a {
+  color: $color-green;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
   }
 }
-h2{
-  @include transform(48px , 20px 0);
-  font-weight:bold;
-}
-#right{
-  width: 35%;
-  display: flex;
-  #right_content{
-    margin: 0 auto;
-    width: 80%;
-    text-align: left;
-  }
-}
-#left {
-  width: 65%;
-  display: flex;
-  background: url(../../dist/img/background.png);
-  background-size: cover;
-  header{
-    width:100%;
-    height: 200px;
+
+.bg {
+  background: url("../img/background.png");
+  width: 70%;
+  height: 100%;
+
+  header {
     display: flex;
     justify-content: flex-end;
-    padding:5px 10px;
-    header img{
-      width:500px;
-    }
+    padding: 20px;
   }
 }
 
-.block_pole_registr{
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  color: $color;
-  padding-top: 50px;
-  @include transform(20px , 0);
-  font-weight:bold;
-  .pole_registr_flex {
-    display: flex;
-    flex-direction:row-reverse;
+.form {
+  background: $color-white;
+  width: 30%;
+  padding: 10px 30px 20px;
+  height: calc(100% - 30px);
+
+  > .form-message {
+    margin-bottom: 20px;
   }
-  .pole_registr{
-    width: 100%;
-    margin-top: 35px;
-    #text{
-      top:10px;
-      margin-top: 10px;
-    }
-    input{
-      &.error {
-        border-bottom: 2px solid $color_red;
-      }
-      width: 100%;
-      box-sizing: border-box;
-      border: none;
-      border-bottom: 2px solid #ccc;
-      background: transparent;
-      color: black;
-      outline:none;
-      padding-bottom:5px;
-      @include transform(28px , 10px 0 0 0);
-      @include input-placeholder {
-        color: #dcdcdc;
-      }
-    }
-    input:focus{
-      @include input-placeholder {
-        color: transparent;
-      }
-    }
-  }
-}
-#success_massage , #invalid_massage{
-  @include transform(20px , 0);
-  text-align: center;
-  font-weight:bold;
-  position: absolute;
-  width: inherit;
-  display: block;
-  box-sizing: border-box;
-}
-#invalid_massage{
-  @include messages(1px solid,3px,$color_red , 10px 0);
-}
-#success_massage{
-  @include messages(1px solid,3px,$color_lightgreen, 10px 0);
-  display: none;
-}
-.invalid{
-  @include transform(18px ,10px 0 5px 0);
-  @include messages(1px solid,3px,$color_red, 3px 7px);
-  position: absolute;
-  text-align: center;
-  font-weight:bold;
-  img{
-    height: 20px;
-    vertical-align: text-top;
-    margin-left: 10px;
-  }
-}
-#invalid_checkbox{
-  display: block;
-  margin-top:10px;
-}
-label{
-  @include transform(20px, 50px 0 0 0);
-  color: #959595;
-  font-weight:bold;
-  #green_text{
-    color:#65c29b;
-  }
-  .checkbox {
+
+  .form-message {
     display: none;
+    &.error-message {
+      border: 1px solid $color-error;
+      border-radius: 4px;
+      padding: 10px 45px 10px 10px;
+      position: relative;
+      &:after {
+        content: '';
+        position: absolute;
+        right: 10px;
+        top: 0;
+        width: 25px;
+        height: 100%;
+        background: url('../img/invalid.png') right center no-repeat;
+      }
+    }
+    &.show {
+      display: block !important;
+    }
   }
-  .checkbox-custom {
-    width: 32px;
-    height: 32px;
+
+  input {
+    border: none;
+    border-bottom: 2px solid $color-grey-light;
+    font-size: 28px;
+    line-height: 28px;
+    padding: 10px 0;
+    outline: none;
+    width: 100%;
+  }
+
+  label {
+    font-size: 20px;
+    color: $color-grey;
+  }
+
+  .form-field {
+    margin-bottom: 30px;
     position: relative;
-    margin:0 10px 0  0;
-    vertical-align: middle;
-    border-radius: 3px;
-    cursor: pointer;
-    background:lightgrey;
+
+    .form-message {
+      position: absolute;
+      right: 0;
+      bottom: 15px;
+      display: none;
+    }
+
+    &.invalid {
+      input {
+        border-bottom-color: $color-error;
+      }
+      .form-message {
+        display: block;
+      }
+    }
+
+    .field-wrap {
+      position: relative;
+    }
   }
-}
-.checkbox-custom, label {
-  display: inline-block;
-  border: none !important;
-}
-.checkbox:checked + .checkbox-custom:before {
-  @include pseudo;
-  top: 5px;
-  right: 2px;
-  bottom: 2px;
-  left: 2px;
-  background: url(../../dist/img/shape.png) no-repeat;
-}
-.checkbox:checked ~ .checkbox-custom {
-  background:#dcdcdc;
+
+  .form-button {
+    button {
+      border: none;
+      background: $color-green;
+      background: linear-gradient(0deg, $color-green 0%, $color-blue 100%);
+      color: $color-white;
+      font-size: 30px;
+      height: 60px;
+      line-height: 60px;
+      padding: 0 80px;
+      border-radius: 30px;
+      cursor: pointer;
+
+      &:hover {
+        background: $color-blue;
+        background: linear-gradient(0deg, $color-blue 0%, $color-green 100%);
+      }
+    }
+  }
+
+  .form-checkbox {
+    padding-bottom: 70px;
+    label {
+      display: block;
+      position: relative;
+      padding-left: 46px;
+      cursor: pointer;
+      line-height: 34px;
+
+      input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+
+        &:checked ~ .checkmark {
+          &:after {
+            display: block;
+          }
+        }
+      }
+
+      .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 34px;
+        width: 34px;
+        background-color: $color-grey-light;
+
+        &:after {
+          content: '';
+          position: absolute;
+          display: none;
+          height: 34px;
+          width: 34px;
+          background: url('../img/Shape.png') center no-repeat;
+        }
+      }
+    }
+  }
 }
 
-.footer{
-  display: flex;
-  flex-direction: column;
-  & .invalid{
-    margin-top: 90px;
-  }
-}
-input[type=submit] {
-  @include transform(30px, 70px 0 0 0);
-  font-weight: bold;
-  width: 300px;
-  background: linear-gradient(to top, $color_blue 0%, $color_green 100%);
-  border-radius: 30px;
-  padding: 10px 0;
-  outline: none;
-  color: white;
-  border: none;
-}
-input[type=submit]:focus{
-  background: linear-gradient(to top, $color_green 0%, $color_blue 100%);
-}
